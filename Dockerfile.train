@@ -1,0 +1,22 @@
+FROM python:3.11-slim
+
+WORKDIR /app
+
+# Install system dependencies needed by some ML libraries
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install Python dependencies first (better layer caching)
+COPY requirements-train.txt .
+RUN pip install --no-cache-dir -r requirements-train.txt
+
+# Copy only what training actually needs
+COPY src/ src/
+COPY data/ data/
+
+# Directories the training scripts write into
+RUN mkdir -p models reports mlruns
+
+# Default: run hyperparameter tuning (trains + logs to MLflow + saves best models + registers versions)
+CMD ["python", "-m", "src.tuning"]

@@ -1,0 +1,694 @@
+/* ============================================================
+   RESPONSIVE DESIGN
+============================================================ */
+
+/* ============================================================
+   LARGE TABLETS / SMALL LAPTOPS
+   1200px and below
+============================================================ */
+
+@media (max-width: 1200px) {
+  .app-shell {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .main-content {
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(380px, 0.9fr);
+
+    gap: 14px;
+  }
+
+  .model-options {
+    grid-template-columns:
+      1fr;
+  }
+
+  .form-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+  .result-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+}
+
+
+/* ============================================================
+   TABLETS
+   992px and below
+============================================================ */
+
+@media (max-width: 992px) {
+  .app-shell {
+    margin-left: var(--sidebar-width);
+
+    padding:
+      14px
+      16px
+      0;
+  }
+
+  .main-content {
+    grid-template-columns:
+      minmax(0, 1fr);
+
+    gap: 16px;
+  }
+
+  .chat-section,
+  .prediction-section {
+    min-height: 650px;
+  }
+
+  .chat-layout {
+    grid-template-columns:
+      200px
+      minmax(0, 1fr);
+  }
+
+  .prediction-section {
+    overflow-y: visible;
+  }
+
+  .risk-hero {
+    grid-template-columns:
+      125px
+      minmax(0, 1fr);
+  }
+}
+
+
+/* ============================================================
+   SMALL TABLETS
+   768px and below
+============================================================ */
+
+@media (max-width: 768px) {
+  .app-shell {
+    margin-left: 0;
+
+    padding:
+      12px
+      12px
+      0;
+  }
+
+  .header {
+    min-height: 62px;
+
+    padding:
+      10px
+      14px;
+  }
+
+  .header h1 {
+    font-size: 14px;
+  }
+
+  .header p {
+    font-size: 9px;
+  }
+
+  .brand-icon {
+    width: 34px;
+    height: 34px;
+
+    font-size: 14px;
+  }
+
+  .status-pill {
+    padding:
+      6px
+      8px;
+
+    font-size: 9px;
+  }
+
+  .main-content {
+    padding:
+      14px
+      0;
+  }
+
+  .chat-section,
+  .prediction-section {
+    min-height: 600px;
+  }
+
+  .chat-layout {
+    grid-template-columns:
+      180px
+      minmax(0, 1fr);
+
+    min-height: 600px;
+  }
+
+  .chat-history-header {
+    padding: 14px;
+  }
+
+  .chat-history-header h3 {
+    font-size: 12px;
+  }
+
+  .chat-history-header p {
+    font-size: 10px;
+  }
+
+  .messages {
+    padding:
+      18px;
+  }
+
+  .message {
+    max-width: 90%;
+  }
+
+  .panel-header {
+    padding:
+      16px
+      18px;
+  }
+
+  .panel-icon {
+    width: 36px;
+    height: 36px;
+
+    border-radius: 10px;
+
+    font-size: 15px;
+  }
+
+  .panel-header h2 {
+    font-size: 14px;
+  }
+
+  .panel-header p {
+    font-size: 10px;
+  }
+
+  .prediction-form {
+    padding:
+      16px
+      18px
+      4px;
+  }
+
+  .prediction-action {
+    padding:
+      12px
+      18px
+      18px;
+  }
+
+  .prediction-result {
+    margin:
+      0
+      18px
+      18px;
+  }
+}
+
+
+/* ============================================================
+   MOBILE
+   600px and below
+============================================================ */
+
+@media (max-width: 600px) {
+  .app-shell {
+    padding:
+      8px
+      8px
+      0;
+  }
+
+  .header {
+    gap: 10px;
+
+    padding:
+      9px
+      11px;
+  }
+
+  .brand {
+    gap: 8px;
+  }
+
+  .brand-icon {
+    width: 32px;
+    height: 32px;
+
+    border-radius: 9px;
+
+    font-size: 13px;
+  }
+
+  .header h1 {
+    font-size: 13px;
+  }
+
+  .header p {
+    display: none;
+  }
+
+  .status-pill {
+    padding:
+      5px
+      7px;
+
+    font-size: 8px;
+  }
+
+  .status-live {
+    display: none;
+  }
+
+  .main-content {
+    padding:
+      10px
+      0;
+
+    gap: 12px;
+  }
+
+  .chat-section,
+  .prediction-section {
+    min-height: 560px;
+
+    border-radius:
+      var(--radius-lg);
+  }
+
+  /* ========================================================
+     CHAT
+  ======================================================== */
+
+  .chat-layout {
+    display: flex;
+    flex-direction: column;
+
+    min-height: 560px;
+  }
+
+  .chat-history {
+    flex-shrink: 0;
+
+    border-right: 0;
+
+    border-bottom:
+      1px solid var(--border);
+
+    max-height: 145px;
+  }
+
+  .chat-history-header {
+    padding:
+      11px
+      12px;
+  }
+
+  .chat-history-list {
+    display: flex;
+
+    gap: 6px;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    padding:
+      7px
+      10px;
+  }
+
+  .chat-history-item {
+    flex-shrink: 0;
+
+    width: 150px;
+
+    margin-bottom: 0;
+  }
+
+  .chat-history-select {
+    padding:
+      8px;
+  }
+
+  .history-icon {
+    width: 22px;
+    height: 22px;
+  }
+
+  .history-delete {
+    width: 26px;
+  }
+
+  .chat-main {
+    min-height: 400px;
+  }
+
+  .chat-main .panel-header {
+    padding:
+      12px
+      14px;
+  }
+
+  .mini-status {
+    padding:
+      5px
+      7px;
+
+    font-size: 8px;
+  }
+
+  .messages {
+    padding:
+      14px;
+  }
+
+  .message {
+    max-width: 94%;
+
+    gap: 8px;
+
+    margin-bottom: 14px;
+  }
+
+  .message-avatar {
+    width: 28px;
+    height: 28px;
+
+    border-radius: 8px;
+
+    font-size: 9px;
+  }
+
+  .message-content {
+    padding:
+      9px
+      11px;
+
+    font-size: 12px;
+  }
+
+  .input-area {
+    gap: 7px;
+
+    padding:
+      10px;
+    }
+
+  .input-area input {
+    height: 40px;
+
+    padding:
+      0
+      11px;
+
+    font-size: 12px;
+  }
+
+  .send-button {
+    min-width: 58px;
+
+    height: 40px;
+
+    padding:
+      0
+      11px;
+
+    font-size: 11px;
+  }
+
+  /* ========================================================
+     PREDICTION
+  ======================================================== */
+
+  .panel-title-row {
+    gap: 9px;
+  }
+
+  .prediction-form {
+    padding:
+      12px
+      14px
+      2px;
+  }
+
+  .form-section {
+    padding:
+      14px
+      0;
+  }
+
+  .form-grid {
+    grid-template-columns:
+      1fr;
+
+    gap: 10px;
+  }
+
+  .form-section-header {
+    gap: 8px;
+
+    margin-bottom: 12px;
+  }
+
+  .section-number {
+    width: 26px;
+    height: 26px;
+  }
+
+  .form-section-header h3 {
+    font-size: 12px;
+  }
+
+  .form-section-header p {
+    font-size: 8px;
+  }
+
+  .prediction-action {
+    padding:
+      10px
+      14px
+      16px;
+  }
+
+  .predict-button {
+    min-height: 44px;
+
+    font-size: 11px;
+  }
+
+  .prediction-result {
+    margin:
+      0
+      14px
+      14px;
+
+    padding: 14px;
+  }
+
+  .result-header {
+    margin-bottom: 14px;
+  }
+
+  .result-header h3 {
+    font-size: 14px;
+  }
+
+  .risk-hero {
+    grid-template-columns:
+      1fr;
+
+    justify-items: center;
+
+    text-align: center;
+
+    gap: 14px;
+
+    padding: 14px;
+  }
+
+  .risk-circle {
+    width: 105px;
+    height: 105px;
+  }
+
+  .risk-circle strong {
+    font-size: 22px;
+  }
+
+  .risk-summary {
+    width: 100%;
+  }
+
+  .risk-summary h4 {
+    font-size: 15px;
+  }
+
+  .result-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+
+    gap: 7px;
+  }
+
+  .result-card {
+    padding: 10px;
+  }
+}
+
+
+/* ============================================================
+   VERY SMALL MOBILE
+   420px and below
+============================================================ */
+
+@media (max-width: 420px) {
+  .app-shell {
+    padding:
+      6px
+      6px
+      0;
+  }
+
+  .header {
+    padding:
+      8px
+      9px;
+  }
+
+  .brand-icon {
+    width: 30px;
+    height: 30px;
+
+    font-size: 12px;
+  }
+
+  .header h1 {
+    font-size: 12px;
+  }
+
+  .main-content {
+    gap: 8px;
+  }
+
+  .chat-section,
+  .prediction-section {
+    min-height: 520px;
+  }
+
+  .chat-history {
+    max-height: 135px;
+  }
+
+  .chat-history-item {
+    width: 135px;
+  }
+
+  .chat-main .panel-header {
+    padding:
+      10px
+      11px;
+  }
+
+  .panel-icon {
+    width: 32px;
+    height: 32px;
+
+    font-size: 13px;
+  }
+
+  .panel-header h2 {
+    font-size: 12px;
+  }
+
+  .panel-header p {
+    display: none;
+  }
+
+  .mini-status {
+    display: none;
+  }
+
+  .messages {
+    padding:
+      11px;
+  }
+
+  .message {
+    max-width: 97%;
+  }
+
+  .message-avatar {
+    width: 26px;
+    height: 26px;
+  }
+
+  .message-content {
+    font-size: 11px;
+  }
+
+  .input-area {
+    padding:
+      8px;
+  }
+
+  .send-button {
+    min-width: 52px;
+  }
+
+  .prediction-form {
+    padding:
+      10px
+      11px
+      2px;
+  }
+
+  .prediction-action {
+    padding:
+      9px
+      11px
+      14px;
+  }
+
+  .prediction-result {
+    margin:
+      0
+      11px
+      11px;
+
+    padding: 11px;
+  }
+
+  .result-grid {
+    grid-template-columns:
+      1fr;
+  }
+
+  .result-card strong {
+    font-size: 10px;
+  }
+}
+
+
+/* ============================================================
+   REDUCED MOTION
+============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

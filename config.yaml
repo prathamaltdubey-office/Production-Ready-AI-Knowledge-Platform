@@ -1,0 +1,17 @@
+﻿# Centralized experiment and pipeline configuration.
+# Not yet wired into every script â€” documents the intended
+# single source of truth for these values.
+
+random_state: 42
+
+data:
+  test_size: 0.2
+
+training:
+  cv: 5
+  scoring: roc_auc
+
+rag:
+  chunk_size: 800
+  chunk_overlap: 100
+  top_k: 5

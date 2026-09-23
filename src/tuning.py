@@ -4,13 +4,14 @@ Perform hyperparameter tuning for customer churn prediction models.
 This script loads the dataset, preprocesses the data,
 performs hyperparameter tuning for multiple machine
 learning models using RandomizedSearchCV, logs the
-results with MLflow, and saves the best models.
+results with MLflow, registers each version in the model
+registry, and saves the best models.
 """
 
 import mlflow
-import mlflow.sklearn
 import pandas as pd
 from joblib import dump
+from mlflow import sklearn
 from mlflow.sklearn import SERIALIZATION_FORMAT_CLOUDPICKLE
 from sklearn.compose import ColumnTransformer
 from sklearn.ensemble import RandomForestClassifier
@@ -25,6 +26,8 @@ from sklearn.preprocessing import (
     StandardScaler,
 )
 from xgboost import XGBClassifier
+
+from src.model_registry import register_model
 
 mlflow.set_experiment("Customer Churn Prediction")
 
@@ -94,13 +97,15 @@ def split_data(
 
     y = df["Churn"]
 
-    return train_test_split(
+    X_train, X_test, y_train, y_test = train_test_split(
         X,
         y,
         test_size=0.2,
         random_state=42,
         stratify=y,
     )
+
+    return X_train, X_test, y_train, y_test
 
 
 def create_preprocessor(
@@ -315,7 +320,7 @@ def tune_logistic(
 
     with mlflow.start_run(
         run_name="Logistic Regression",
-    ):
+    ) as run:
 
         search.fit(
             X_train,
@@ -333,18 +338,28 @@ def tune_logistic(
             search.best_score_,
         )
 
-        mlflow.sklearn.log_model(
+        sklearn.log_model(
             sk_model=search.best_estimator_,
             name="model",
             serialization_format=SERIALIZATION_FORMAT_CLOUDPICKLE,
         )
 
+        model_path = "models/best_logistic_model.pkl"
+
         dump(
             search.best_estimator_,
-            "models/best_logistic_model.pkl",
+            model_path,
         )
 
-        print("Logistic Regression model saved.\n")
+        version = register_model(
+            model_name="logistic_regression",
+            file_path=model_path,
+            metrics={"best_cv_score": search.best_score_},
+            mlflow_run_id=run.info.run_id,
+            params=search.best_params_,
+        )
+
+        print(f"Logistic Regression model saved as version {version}.\n")
 
 
 def tune_random_forest(
@@ -377,7 +392,7 @@ def tune_random_forest(
 
     with mlflow.start_run(
         run_name="Random Forest",
-    ):
+    ) as run:
 
         search.fit(
             X_train,
@@ -395,18 +410,28 @@ def tune_random_forest(
             search.best_score_,
         )
 
-        mlflow.sklearn.log_model(
+        sklearn.log_model(
             sk_model=search.best_estimator_,
             name="model",
             serialization_format=SERIALIZATION_FORMAT_CLOUDPICKLE,
         )
 
+        model_path = "models/best_rf_model.pkl"
+
         dump(
             search.best_estimator_,
-            "models/best_rf_model.pkl",
+            model_path,
         )
 
-        print("Random Forest model saved.\n")
+        version = register_model(
+            model_name="random_forest",
+            file_path=model_path,
+            metrics={"best_cv_score": search.best_score_},
+            mlflow_run_id=run.info.run_id,
+            params=search.best_params_,
+        )
+
+        print(f"Random Forest model saved as version {version}.\n")
 
 
 def tune_xgboost(
@@ -439,7 +464,7 @@ def tune_xgboost(
 
     with mlflow.start_run(
         run_name="XGBoost",
-    ):
+    ) as run:
 
         search.fit(
             X_train,
@@ -457,18 +482,28 @@ def tune_xgboost(
             search.best_score_,
         )
 
-        mlflow.sklearn.log_model(
+        sklearn.log_model(
             sk_model=search.best_estimator_,
             name="model",
             serialization_format=SERIALIZATION_FORMAT_CLOUDPICKLE,
         )
 
+        model_path = "models/best_xgb_model.pkl"
+
         dump(
             search.best_estimator_,
-            "models/best_xgb_model.pkl",
+            model_path,
         )
 
-        print("XGBoost model saved.\n")
+        version = register_model(
+            model_name="xgboost",
+            file_path=model_path,
+            metrics={"best_cv_score": search.best_score_},
+            mlflow_run_id=run.info.run_id,
+            params=search.best_params_,
+        )
+
+        print(f"XGBoost model saved as version {version}.\n")
 
 
 def main() -> None:

@@ -44,4 +44,14 @@ dist/
 
 # MLflow
 mlruns/
+mlflow.db.env
+
+# MLflow database
 mlflow.db
+
+# Node.js
+node_modules/
+
+# Backend logs
+backend/logs/
+

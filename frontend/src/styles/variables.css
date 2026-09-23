@@ -1,0 +1,79 @@
+:root {
+  --sidebar-width: 250px;
+
+  /* ============================================================
+     DARK THEME
+  ============================================================ */
+
+  --bg-0: #030712;
+  --bg-1: #050816;
+  --bg-2: #071127;
+
+  --surface: #0b1328;
+  --surface-light: #111b34;
+
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --text-tertiary: #94a3b8;
+  --text-muted: #64748b;
+
+  --blue: #3b82f6;
+  --blue-light: #60a5fa;
+  --indigo: #6366f1;
+  --purple: #8b5cf6;
+  --cyan: #06b6d4;
+
+  --green: #22c55e;
+  --green-light: #86efac;
+  --yellow: #f59e0b;
+  --red: #ef4444;
+
+  --border: rgba(148, 163, 184, 0.11);
+  --border-light: rgba(255, 255, 255, 0.075);
+  --border-strong: rgba(148, 163, 184, 0.2);
+
+  --glass-bg: rgba(8, 15, 34, 0.72);
+  --glass-highlight: rgba(255, 255, 255, 0.055);
+
+  --shadow-sm: 0 8px 24px rgba(0, 0, 0, 0.16);
+  --shadow-md: 0 20px 55px rgba(0, 0, 0, 0.24);
+  --shadow-lg: 0 30px 90px rgba(0, 0, 0, 0.34);
+
+  --radius-sm: 9px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-xl: 24px;
+
+  --transition-fast: 160ms ease;
+  --transition: 200ms ease;
+}
+
+
+/* ============================================================
+   LIGHT THEME
+============================================================ */
+
+.theme-light {
+  --bg-0: #f1f5f9;
+  --bg-1: #f8fafc;
+  --bg-2: #ffffff;
+
+  --surface: #ffffff;
+  --surface-light: #f8fafc;
+
+  --text-primary: #0f172a;
+  --text-secondary: #334155;
+  --text-tertiary: #64748b;
+  --text-muted: #94a3b8;
+
+  --border: rgba(15, 23, 42, 0.09);
+  --border-light: rgba(15, 23, 42, 0.06);
+  --border-strong: rgba(15, 23, 42, 0.16);
+
+  --glass-bg: rgba(255, 255, 255, 0.78);
+  --glass-highlight: rgba(255, 255, 255, 0.9);
+
+  --shadow-sm: 0 8px 24px rgba(15, 23, 42, 0.06);
+  --shadow-md: 0 20px 55px rgba(15, 23, 42, 0.08);
+  --shadow-lg: 0 30px 90px rgba(15, 23, 42, 0.12);
+}

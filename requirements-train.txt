@@ -1,0 +1,11 @@
+pandas
+numpy
+scikit-learn==1.7.2
+joblib
+xgboost
+mlflow
+pytest
+pytest-cov
+black
+ruff
+isort

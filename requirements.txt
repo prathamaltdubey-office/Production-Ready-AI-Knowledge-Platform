@@ -15,3 +15,16 @@ black
 ruff
 isort
 pre-commit
+langchain
+langchain-community
+langchain-core
+langchain-ollama
+langchain-huggingface
+sentence-transformers
+faiss-cpu
+pypdf
+markdown
+beautifulsoup4
+wikipedia
+duckduckgo-search
+langgraph

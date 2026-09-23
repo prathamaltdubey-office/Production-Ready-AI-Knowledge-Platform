@@ -1,0 +1,11 @@
+@import "./styles/variables.css";
+@import "./styles/global.css";
+@import "./styles/common.css";
+@import "./styles/layout.css";
+@import "./styles/sidebar.css";
+@import "./styles/header.css";
+@import "./styles/chat.css";
+@import "./styles/prediction.css";
+@import "./styles/responsive.css";
+@import "./styles/dashboard.css";
+@import "./styles/documents.css";

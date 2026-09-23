@@ -1,0 +1,27 @@
+services:
+  backend:
+    build:
+      context: .
+    container_name: churn-backend
+    ports:
+      - "8000:8000"
+    environment:
+      API_TOKEN: customer-churn-secret-token
+      OLLAMA_BASE_URL: http://host.containers.internal:11434
+    volumes:
+      - ./documents:/app/documents
+      - ./backend/logs:/app/backend/logs
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+    container_name: churn-frontend
+    ports:
+      - "5173:5173"
+    environment:
+      VITE_API_BASE_URL: http://localhost:8000
+      VITE_API_TOKEN: customer-churn-secret-token
+    depends_on:
+      - backend
+    restart: unless-stopped

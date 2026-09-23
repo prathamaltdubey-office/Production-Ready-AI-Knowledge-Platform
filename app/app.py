@@ -173,10 +173,6 @@ with tab2:
 
     st.dataframe(performance_df)
 
-    performance_df = pd.read_csv("reports/model_metrics.csv")
-
-    st.dataframe(performance_df)
-
     st.subheader("Business Insights")
 
 st.markdown(
