@@ -544,6 +544,7 @@ def test_tune_logistic():
         patch("src.tuning.mlflow.log_metric"),
         patch("src.tuning.mlflow.sklearn.log_model"),
         patch("src.tuning.dump"),
+        patch("src.tuning.register_model"),
     ):
         tune_logistic(
             X_train,
@@ -582,6 +583,7 @@ def test_tune_random_forest():
         patch("src.tuning.mlflow.log_metric"),
         patch("src.tuning.mlflow.sklearn.log_model"),
         patch("src.tuning.dump"),
+        patch("src.tuning.register_model"),
     ):
         tune_random_forest(
             X_train,
@@ -622,6 +624,7 @@ def test_tune_xgboost():
         patch("src.tuning.mlflow.log_metric"),
         patch("src.tuning.mlflow.sklearn.log_model"),
         patch("src.tuning.dump"),
+        patch("src.tuning.register_model"),
     ):
         tune_xgboost(
             X_train,
