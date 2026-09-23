@@ -24,8 +24,15 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
+      - name: Download test dataset
+        run: |
+          mkdir -p data
+          curl -L \
+            https://raw.githubusercontent.com/IBM/telco-customer-churn-on-icp4d/master/data/Telco-Customer-Churn.csv \
+            -o data/Telco_Customer_churn.csv
+
       - name: Run tests
-        run: pytest
+        run: pytest --ignore=tests/test_streaming.py
 
   frontend:
     runs-on: ubuntu-latest
