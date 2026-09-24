@@ -9,6 +9,7 @@ profile = "black"
 line-length = 88
 
 [tool.ruff.lint]
-select = ["E", "F", "I"]
+select = ["E", "F"]
+
 [tool.pytest.ini_options]
 testpaths = ["tests"]
