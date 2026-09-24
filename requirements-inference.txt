@@ -20,3 +20,4 @@ wikipedia
 duckduckgo-search
 langgraph
 pdfplumber
+pyarrow
